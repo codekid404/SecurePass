@@ -7,19 +7,19 @@
   <title>SecurePass</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" href="/images/SecurePass.png" type="image/x-icon" width="46" height="46">
+  <link rel="icon" href="https://codekid404.github.io/SecurePass/images/SecurePass.png" type="image/x-icon" width="46" height="46">
 </head>
   <body>
   <div class="container">
     <div class="logo">
-        <img src="/images/SecurePasslogo.png" alt="SecurePass">
+        <img src="https://codekid404.github.io/SecurePass/images/SecurePasslogo.png" alt="SecurePass">
       </div>
     <h1>Check If Your Password Is <br><span id="animated-text"></span></h1>
     <div class="display">
       <input type="password" id="password" placeholder="Password">
       <span class="eye-icon" onclick="togglePasswordVisibility()"><i class="fas fa-eye"></i></span>
     </div>
-    <button onclick="submitPassword()"><img src="/images/search.png" alt="">Go Cyber Guards!</button>
+    <button onclick="submitPassword()"><img src="https://codekid404.github.io/SecurePass/images/search.png" alt="">Go Cyber Guards!</button>
     <div id="result"></div>
 
     <div id="footer">
@@ -81,7 +81,7 @@ function animateText() {
         if (matches) {
             const suffixIndex = matches[0].indexOf(':');
             const count = matches[0].substring(suffixIndex + 1).trim();
-            document.getElementById('result').innerHTML = `This password has been exposed in data breaches. Consider using a different password, use our Password Generator <a href="passgen.html">Pass</a> to generate secure password.`;
+            document.getElementById('result').innerHTML = `This password has been exposed in data breaches. Consider using a different password, use our Password Generator <a href="https://codekid404.github.io/SecurePass/passgen.html">Pass</a> to generate secure password.`;
           } else {
             document.getElementById('result').innerHTML = "This password has not been found in data breaches. It might be safer to use, but always use unique and strong passwords.";
           }
