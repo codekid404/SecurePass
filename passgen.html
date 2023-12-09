@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Codekid404">
+  <meta name="generator" content="Codekid404">
+  <title>SecurePass</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="/images/SecurePass.png" type="image/x-icon" width="46" height="46">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+        <img src="/images/SecurePasslogo.png" alt="SecurePass">
+      </div>
+    <h1>Generate A <br><span id="animated-text"></span></h1>
+    <div class="display">
+      <input type="text" id="password" placeholder="Password">
+      <img src="/images/copy.png" onclick="copypass()">
+    </div>
+    <button onclick="CreateSecurePass()"><img src="/images/generate.png" alt="">Guide Me Senpai</button>
+    <div id="copied-message"></div>
+
+    <div id="footer">
+        <p>Designed &amp; Developed by
+          <a href="https://github.com/Codekid404" target="_blank">Codekid404 <i class="fab fa-github"></i></a>
+        </p>
+      </div>
+  </div>
+
+  <script>
+
+function animateText() {
+    const text = "Secure Password";
+    const animatedText = document.getElementById('animated-text');
+    let charIndex = 0;
+  
+    const typingInterval = setInterval(() => {
+      animatedText.textContent += text[charIndex];
+      charIndex++;
+
+      if (charIndex === text.length) {
+        clearInterval(typingInterval);
+      }
+    }, 200);
+  }
+
+  document.addEventListener('DOMContentLoaded', animateText);
+
+  const securepassword = document.getElementById("password");
+  const length = 12;
+
+  const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  const number = "1234567890";
+  const symbols = "!@#$%ˆ&*()_+=/";
+
+  const all = upperCase + lowerCase + number + symbols
+
+  function CreateSecurePass(){
+    let password = "";
+    password += upperCase[Math.floor(Math.random() * upperCase.length)];
+    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    password += number[Math.floor(Math.random() * number.length)];
+    password += symbols[Math.floor(Math.random() * symbols.length)];
+
+    while (length > password.length){
+
+        password += all[Math.floor(Math.random() * all.length)];
+        securepassword.value = password;
+    }
+}
+
+    function showCopiedMessage() {
+        const copiedMessage = document.getElementById('copied-message');
+        copiedMessage.textContent = 'Copied!';
+        copiedMessage.classList.add('copied-message-show');
+      
+        setTimeout(() => {
+          copiedMessage.textContent = '';
+          copiedMessage.classList.remove('copied-message-show');
+        }, 2000);
+      }
+
+function copypass(){
+    securepassword.select();
+    document.execCommand("copy");
+    showCopiedMessage();
+}
+
+  </script>
+</body>
+</html>
